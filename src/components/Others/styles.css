@@ -1,0 +1,14 @@
+.container-search {
+  color: white;
+  font-size: 20px;
+}
+
+.container-search input {
+  background-color: var(--brand_dark);
+  border: 1px solid var(--dark_gray);
+  color: white !important;
+}
+
+.container-search input:focus {
+  background-color: var(--brand_dark);
+}

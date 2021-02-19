@@ -1,0 +1,6 @@
+.container-header {
+  background-color: var(--brand_dark);
+  border-bottom: 1px solid #ddd;
+  color: white;
+  padding: 30px 0;
+}
