@@ -63,3 +63,19 @@ input[type="color"]:focus,
   border-color: var(--dark_gray) !important;
   outline: 0 none;
 }
+
+@keyframes updown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.animation-up-down {
+  animation: updown 1s ease infinite;
+}

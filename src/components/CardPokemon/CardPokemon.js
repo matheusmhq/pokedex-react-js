@@ -7,14 +7,13 @@ import { GetImageForIndex } from "../../functions/utils";
 function CardPokemon({ ...props }) {
   const { pokemon } = props;
 
-  //   console.log(pokemon);
-
   return (
     <>
       <Col xs={12} md={6} lg={3}>
         <div className="container-card mb-5">
-          <a href="#" className="container-card-img">
+          <a href={`/details/${pokemon.name}`} className="container-card-img">
             <img
+              className="animation-up-down"
               alt={pokemon.name}
               title={pokemon.name}
               src={GetImageForIndex(pokemon.pokemonIndex)}

@@ -45,7 +45,8 @@ function Home({ history, ...props }) {
             pokemonsOriginal = response.data.results;
             var newList = response.data.results.filter((item, index) => {
               item.pokemonIndex = index + 1;
-              item.number = index.toString().padStart(3, "0");
+              item.number = (index + 1).toString().padStart(3, "0");
+
               if (query != undefined) {
                 if (
                   item.name.includes(query.toLowerCase()) ||
