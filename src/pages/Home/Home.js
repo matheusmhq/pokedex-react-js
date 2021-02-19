@@ -25,8 +25,7 @@ function Home({ history, ...props }) {
     history.push(`/${query}`);
     var filterPokemons = pokemonsOriginal.filter((item) => {
       return (
-        item.name.includes(query.toLowerCase()) ||
-        String(item.pokemonIndex).includes(query)
+        item.name.includes(query.toLowerCase()) || item.number.includes(query)
       );
     });
 
@@ -46,10 +45,11 @@ function Home({ history, ...props }) {
             pokemonsOriginal = response.data.results;
             var newList = response.data.results.filter((item, index) => {
               item.pokemonIndex = index + 1;
+              item.number = index.toString().padStart(3, "0");
               if (query != undefined) {
                 if (
                   item.name.includes(query.toLowerCase()) ||
-                  String(item.pokemonIndex).includes(query)
+                  item.number.includes(query)
                 )
                   return item;
               } else {
@@ -81,7 +81,7 @@ function Home({ history, ...props }) {
         var filterPokemons = pokemonsOriginal.filter((item) => {
           return (
             item.name.includes(query.toLowerCase()) ||
-            String(item.pokemonIndex).includes(query)
+            item.number.includes(query)
           );
         });
         setPokemons(filterPokemons.slice(0, pokemons.length + perPage));

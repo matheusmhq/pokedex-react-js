@@ -19,9 +19,7 @@ function CardPokemon({ ...props }) {
               title={pokemon.name}
               src={GetImageForIndex(pokemon.pokemonIndex)}
             />
-            <p className="pokemon-number">
-              N° {pokemon.pokemonIndex.toString().padStart(3, "0")}
-            </p>
+            <p className="pokemon-number">N° {pokemon.number}</p>
           </a>
           <div className="px-2">
             <div>
