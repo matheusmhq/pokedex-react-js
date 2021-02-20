@@ -5,9 +5,7 @@ import { Row, Col } from "react-bootstrap";
 import Colors from "../../styles/Colors";
 import "./styles.css";
 
-function LoadingCard({ ...props }) {
-  const { qty } = props;
-
+const LoadingCard = ({ qty }) => {
   function RenderSkeleton() {
     var list = [];
 
@@ -15,11 +13,7 @@ function LoadingCard({ ...props }) {
       list.push(
         <Col xs={12} sm={6} lg={3} key={i}>
           <div className="loading-item mb-3 p-3">
-            <SkeletonTheme
-              style={{ display: "flex" }}
-              color={Colors.brand_dark}
-              highlightColor="#444"
-            >
+            <SkeletonTheme color={Colors.brand_dark} highlightColor="#444">
               <Skeleton count={1} />
               <Skeleton count={1} />
               <div className="my-4 d-flex justify-content-center">
@@ -35,6 +29,6 @@ function LoadingCard({ ...props }) {
   }
 
   return <Row>{RenderSkeleton()}</Row>;
-}
+};
 
 export default LoadingCard;

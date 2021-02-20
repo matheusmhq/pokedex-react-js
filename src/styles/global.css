@@ -3,6 +3,11 @@
   src: url("../assets/fonts/Aero.ttf");
 }
 
+@font-face {
+  font-family: "OldSansBlack";
+  src: url("../assets/fonts/test/OldSansBlack.ttf");
+}
+
 * {
   font-family: "Aero";
 }

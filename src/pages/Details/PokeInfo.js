@@ -1,0 +1,49 @@
+import React from "react";
+
+import { DetermineGenderRate } from "../../functions/utils";
+
+const PokeInfo = ({
+  height,
+  capture_rate,
+  weight,
+  abilities,
+  gender_rate,
+  habitat,
+}) => {
+  console.log("height " + height);
+  return (
+    <div className="container-info d-flex flex-wrap mt-4">
+      <div className="info-item">
+        <h4>Height</h4>
+        <p>{Math.round(height * 10) / 100} m</p>
+      </div>
+
+      <div className="info-item">
+        <h4>Capture rate</h4>
+        <p>{Math.round(capture_rate * 100) / 100}%</p>
+      </div>
+
+      <div className="info-item">
+        <h4>Weight</h4>
+        <p>{Math.round(weight * 10) / 100} kg</p>
+      </div>
+
+      <div className="info-item">
+        <h4>Abilities</h4>
+        <p>{abilities}</p>
+      </div>
+
+      <div className="info-item mb-0">
+        <h4>Gender</h4>
+        <p>{DetermineGenderRate(gender_rate)}</p>
+      </div>
+
+      <div className="info-item mb-0">
+        <h4>habitat</h4>
+        <p>{habitat}</p>
+      </div>
+    </div>
+  );
+};
+
+export default PokeInfo;

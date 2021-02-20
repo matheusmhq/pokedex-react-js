@@ -11,6 +11,7 @@ import Colors from "../../styles/Colors";
 
 var pokemonsOriginal = [];
 const perPage = 40;
+const limit = 10;
 var max = 0;
 
 function Home({ history, ...props }) {
@@ -43,7 +44,7 @@ function Home({ history, ...props }) {
   useEffect(() => {
     setLoading(true);
     api
-      .get(`/pokemon?limit=9999`)
+      .get(`/pokemon?limit=${limit}`)
       .then((response) => {
         if (response.status == 200) {
           console.log("LoadPokemons success");

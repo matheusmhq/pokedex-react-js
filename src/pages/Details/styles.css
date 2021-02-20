@@ -1,0 +1,56 @@
+.details-right h3 {
+  line-height: 30px;
+  font-size: 20px;
+  font-family: "OldSansBlack";
+}
+
+.sword,
+.shield {
+  border: 2px dashed var(--brand_dark) !important;
+  border-radius: 100%;
+}
+
+.sword {
+  background-color: var(--fighting) !important;
+}
+
+.shield {
+  background-color: var(--water) !important;
+}
+
+.container-versions button {
+  background: none;
+  border: none;
+  width: 46px;
+}
+
+.container-versions img {
+  width: 30px;
+}
+
+.container-info {
+  background-color: var(--card_gray);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.info-item {
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.info-item h4 {
+  font-size: 12px;
+  margin-bottom: 0;
+  letter-spacing: 4px;
+  display: flex;
+  align-items: center;
+  font-family: "OldSansBlack";
+}
+
+.info-item p {
+  margin-bottom: 0;
+  text-transform: capitalize;
+  font-size: 16px;
+  font-family: "OldSansBlack";
+}

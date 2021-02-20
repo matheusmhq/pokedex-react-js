@@ -1,23 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
+import LoadingDetails from "../../components/Loading/LoadingDetails";
 import Header from "../../components/Header/Header";
+import PokeCard from "./PokeCard";
+import PokeOverview from "./PokeOverview";
+import PokeInfo from "./PokeInfo";
+import PokeStats from "./PokeStats";
 import api from "../../services/api";
+import "./styles.css";
+import LoadingCard from "../../components/Loading/LoadingCard";
 
 function Details({ history, ...props }) {
   const { name } = props.match.params;
 
+  const [loading, setLoading] = useState(true);
   const [details, setDetails] = useState({});
 
   useEffect(() => {
-    function LoadDetails() {
+    function LoadPokemon() {
       api
         .get(`/pokemon/${name}`)
         .then((response) => {
           if (response.status == 200) {
             console.log("LoadDetails success");
             console.log(response.data);
-            setDetails(response.data);
+            LoadSpecies(response.data);
           }
         })
         .catch((error) => {
@@ -26,17 +34,94 @@ function Details({ history, ...props }) {
     }
 
     if (name == undefined) history.push({ pathname: "/" });
-    LoadDetails();
+    LoadPokemon();
   }, []);
 
+  async function LoadSpecies(poke) {
+    let response = await api.get(`/pokemon-species/${name}`);
+
+    console.log(response.data);
+
+    var flavor_text_sword = "";
+    var flavor_text_shield = "";
+    response.data.flavor_text_entries.map((item) => {
+      if (item.language.name != "en") return false;
+      if (item.version.name == "sword") {
+        flavor_text_sword = item.flavor_text;
+      } else if (item.version.name == "shield") {
+        flavor_text_shield = item.flavor_text;
+      }
+    });
+
+    var abilities = "";
+    poke.abilities.map((item, index) => {
+      abilities += `${item.ability.name}${
+        poke.abilities.length == index + 1 ? "" : ", "
+      }`;
+    });
+
+    var obj = {
+      id: poke.id,
+      name: poke.name,
+      types: poke.types,
+      flavor_text_sword,
+      flavor_text_shield,
+      height: poke.height,
+      weight: poke.weight,
+      abilities,
+      gender_rate: response.data.gender_rate,
+      capture_rate: response.data.capture_rate,
+      habitat: response.data.habitat.name,
+      stats: poke.stats,
+    };
+
+    setDetails(obj);
+    setLoading(false);
+  }
+
   return (
-    <div>
-      <Header />
-      <Container className="text-light">
-        <p>details</p>
-        <p>{details.name}</p>
-      </Container>
-    </div>
+    <>
+      <div>
+        <Header />
+        <Container className="text-light">
+          {loading ? (
+            <LoadingDetails />
+          ) : (
+            <>
+              <Row>
+                <Col xs={12} md={6}>
+                  <PokeCard
+                    name={details.name}
+                    id={details.id}
+                    types={details.types}
+                  />
+                </Col>
+
+                <Col xs={12} md={6}>
+                  <div className="details-right">
+                    <div>
+                      <PokeOverview
+                        flavor_text_sword={details.flavor_text_sword}
+                        flavor_text_shield={details.flavor_text_shield}
+                      />
+                      <PokeInfo
+                        height={details.height}
+                        capture_rate={details.capture_rate}
+                        weight={details.weight}
+                        abilities={details.abilities}
+                        gender_rate={details.gender_rate}
+                        habitat={details.habitat}
+                      />
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+              <PokeStats stats={details.stats} />
+            </>
+          )}
+        </Container>
+      </div>
+    </>
   );
 }
 
