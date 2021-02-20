@@ -13,7 +13,7 @@ function LoadingCard({ ...props }) {
 
     for (var i = 1; i <= qty; i++) {
       list.push(
-        <Col xs={12} md={6} lg={3} key={i}>
+        <Col xs={12} sm={6} lg={3} key={i}>
           <div className="loading-item mb-3 p-3">
             <SkeletonTheme
               style={{ display: "flex" }}

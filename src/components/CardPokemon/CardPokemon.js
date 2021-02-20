@@ -19,7 +19,7 @@ function CardPokemon({ ...props }) {
 
   return (
     <>
-      <Col xs={12} md={6} lg={3}>
+      <Col xs={12} sm={6} lg={3}>
         <div className="container-card mb-4">
           <div>
             <div className="text-center">
