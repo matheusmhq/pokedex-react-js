@@ -44,6 +44,7 @@ function Details({ history, ...props }) {
 
     var flavor_text_sword = "";
     var flavor_text_shield = "";
+    var flavor_text_default = "";
     response.data.flavor_text_entries.map((item) => {
       if (item.language.name != "en") return false;
       if (item.version.name == "sword") {
@@ -51,6 +52,7 @@ function Details({ history, ...props }) {
       } else if (item.version.name == "shield") {
         flavor_text_shield = item.flavor_text;
       }
+      flavor_text_default = item.flavor_text;
     });
 
     var abilities = "";
@@ -66,6 +68,7 @@ function Details({ history, ...props }) {
       types: poke.types,
       flavor_text_sword,
       flavor_text_shield,
+      flavor_text_default,
       height: poke.height,
       weight: poke.weight,
       abilities,
@@ -103,6 +106,7 @@ function Details({ history, ...props }) {
                       <PokeOverview
                         flavor_text_sword={details.flavor_text_sword}
                         flavor_text_shield={details.flavor_text_shield}
+                        flavor_text_default={details.flavor_text_default}
                       />
                       <PokeInfo
                         height={details.height}

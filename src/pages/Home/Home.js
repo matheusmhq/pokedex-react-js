@@ -11,7 +11,7 @@ import Colors from "../../styles/Colors";
 
 var pokemonsOriginal = [];
 const perPage = 40;
-const limit = 10;
+const limit = 200;
 var max = 0;
 
 function Home({ history, ...props }) {
