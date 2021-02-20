@@ -1,5 +1,5 @@
 const Colors = {
-  brand_dark: "#282c34",
+  brand_dark: "#212529",
   brand_green: "#13ce66",
   brand_pink: "#fe8bc4",
   brand_red: "#ff0000 ",
@@ -13,6 +13,7 @@ const Colors = {
   light_gray: "#dddddd",
   lighter_gray: "#eeeeee",
   lightest_gray: "#f2f2f2",
+  card_gray: "#495057",
 };
 
 export default Colors;

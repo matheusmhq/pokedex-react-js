@@ -7,6 +7,7 @@ import CardPokemon from "../../components/CardPokemon/CardPokemon";
 import Search from "../../components/Others/Search";
 import LoadingCard from "../../components/Loading/LoadingCard";
 import api from "../../services/api";
+import Colors from "../../styles/Colors";
 
 var pokemonsOriginal = [];
 const perPage = 40;
@@ -117,7 +118,11 @@ function Home({ history, ...props }) {
             hasMore={pokemons.length < max}
             loader={
               <div className="mb-4 d-flex justify-content-center align-item-center">
-                <Spinner variant={"light"} animation="border" role="status">
+                <Spinner
+                  style={{ color: Colors.card_gray }}
+                  animation="border"
+                  role="status"
+                >
                   <span className="sr-only">Loading...</span>
                 </Spinner>
               </div>
