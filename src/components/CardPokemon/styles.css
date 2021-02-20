@@ -1,33 +1,19 @@
 .container-card {
   transition: all 0.7s;
+  background-color: var(--card_gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 14px 12px;
 }
 
 .container-card:hover {
-  transform: translateY(-6px);
+  text-decoration: none;
 }
 
 .container-card-img {
-  background-color: var(--lightest_gray);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  position: relative;
-  min-height: 215px;
-}
-
-.pokemon-number {
-  background-color: var(--darkest_gray);
-  color: var(--lightest_gray);
-  font-size: 12px;
-  font-weight: bold;
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  padding: 4px;
-  border-radius: 0px;
-  border-top-left-radius: 0;
-  margin-bottom: 0;
+  z-index: 2;
 }
 
 .pokemon-name {
@@ -36,4 +22,482 @@
   color: white;
   text-align: center;
   margin-top: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.pokemon-number {
+  margin-top: 4px;
+  color: var(--lightest_gray);
+}
+
+.type-item {
+  width: 48%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--brand_dark);
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+/* normal */
+.container-normal::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--normal) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-normal::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--normal), var(--default_rgba));
+}
+
+/* fire */
+.container-fire::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--fire) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-fire::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--fire), var(--default_rgba));
+}
+
+/* water */
+.container-water::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--water) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-water::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--water), var(--default_rgba));
+}
+
+/* electric */
+.container-electric::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--electric) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-electric::after {
+  opacity: 1;
+  background-image: linear-gradient(
+    45deg,
+    var(--electric),
+    var(--default_rgba)
+  );
+}
+
+/* grass */
+.container-grass::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--grass) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-grass::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--grass), var(--default_rgba));
+}
+
+/* ice */
+.container-ice::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--ice) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-ice::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--ice), var(--default_rgba));
+}
+
+/* fighting  */
+.container-fighting::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--fighting) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-fighting::after {
+  opacity: 1;
+  background-image: linear-gradient(
+    45deg,
+    var(--fighting),
+    var(--default_rgba)
+  );
+}
+
+/* poison  */
+.container-poison::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--poison) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-poison::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--poison), var(--default_rgba));
+}
+
+/* ground  */
+.container-ground::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--ground) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-ground::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--ground), var(--default_rgba));
+}
+
+/* flying  */
+.container-flying::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--flying) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-flying::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--flying), var(--default_rgba));
+}
+
+/* psychic  */
+.container-psychic::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--psychic) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-psychic::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--psychic), var(--default_rgba));
+}
+
+/* bug  */
+.container-bug::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--bug) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-bug::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--bug), var(--default_rgba));
+}
+
+/* rock  */
+.container-rock::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--rock) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-rock::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--rock), var(--default_rgba));
+}
+
+/* ghost  */
+.container-ghost::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--ghost) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-ghost::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--ghost), var(--default_rgba));
+}
+
+/* dragon  */
+.container-dragon::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--dragon) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-dragon::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--dragon), var(--default_rgba));
+}
+
+/* dark  */
+.container-dark::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--dark) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-dark::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--dark), var(--default_rgba));
+}
+
+/* steel  */
+.container-steel::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--steel) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-steel::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--steel), var(--default_rgba));
+}
+
+/* fairy  */
+.container-fairy::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(
+    45deg,
+    var(--fairy) 0 1%,
+    transparent 50% 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 1.5s;
+}
+
+.container-card:hover .container-fairy::after {
+  opacity: 1;
+  background-image: linear-gradient(45deg, var(--fairy), var(--default_rgba));
 }
