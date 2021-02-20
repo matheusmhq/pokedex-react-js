@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Col } from "react-bootstrap";
 
 import "./styles.css";
 import { GetImageForIndex } from "../../functions/utils";
 
+import pokemon_placeholder from "../../assets/img/pokemon-placeholder.png";
+
 function CardPokemon({ ...props }) {
   const { pokemon } = props;
 
-  console.log(pokemon);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    setError(false);
+  }, [pokemon]);
+
+  //console.log(pokemon);
 
   return (
     <>
@@ -23,12 +31,21 @@ function CardPokemon({ ...props }) {
             className={`container-card-img position-relative my-4 container-${pokemon.types[0].type.name}`}
             href={`/details/${pokemon.name}`}
           >
-            <img
-              className="animation-up-down"
-              alt={pokemon.name}
-              title={pokemon.name}
-              src={GetImageForIndex(pokemon.id)}
-            />
+            {error ? (
+              <img
+                alt={pokemon.name}
+                title={pokemon.name}
+                src={pokemon_placeholder}
+              />
+            ) : (
+              <img
+                onError={(e) => setError(true)}
+                className="animation-up-down"
+                alt={pokemon.name}
+                title={pokemon.name}
+                src={GetImageForIndex(pokemon.id)}
+              />
+            )}
           </a>
           <div className="w-100  d-flex justify-content-between">
             {pokemon.types.map((item, index) => {

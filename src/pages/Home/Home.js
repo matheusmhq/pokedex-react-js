@@ -60,11 +60,15 @@ function Home({ history, ...props }) {
     var all = [];
     for (var i = 0; i < list.length; i++) {
       let response = await api.get(`/pokemon/${list[i].name}`);
+      console.log(response.data);
       var obj = {
         name: response.data.name,
         id: response.data.id,
         types: response.data.types,
         number: response.data.id.toString().padStart(3, "0"),
+        image:
+          response.data.sprites.versions["generation-v"]["black-white"].animated
+            .front_default,
       };
       all.push(obj);
     }
@@ -134,8 +138,8 @@ function Home({ history, ...props }) {
             }
           >
             <Row>
-              {pokemons.map((item, index) => {
-                return <CardPokemon key={index} pokemon={item} />;
+              {pokemons.map((item) => {
+                return <CardPokemon key={item.id} pokemon={item} />;
               })}
             </Row>
           </InfiniteScroll>
