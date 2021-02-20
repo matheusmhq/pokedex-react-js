@@ -13,7 +13,12 @@ function LoadingCard({ ...props }) {
     for (var i = 1; i <= qty; i++) {
       list.push(
         <Col xs={12} md={6} lg={3} key={i}>
-          <Skeleton className="mb-3" height={382} />
+          <div className="loading-item mb-3 p-3">
+            <Skeleton count={1} />
+            <Skeleton count={1} />
+            <Skeleton height={250} />
+            <Skeleton height={47} />
+          </div>
         </Col>
       );
     }

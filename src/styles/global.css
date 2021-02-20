@@ -24,10 +24,8 @@
   --lighter_gray: #eeeeee;
   --lightest_gray: #f2f2f2;
 
-  --normal: #a8a77a;
-
   --default_rgba: rgba(238, 129, 48, 0.00001);
-
+  --normal: #a8a77a;
   --fire: #ee8130;
   --water: #6390f0;
   --electric: #f7d02c;
