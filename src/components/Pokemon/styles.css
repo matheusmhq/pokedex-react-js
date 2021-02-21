@@ -38,7 +38,7 @@
   align-items: center;
   padding: 10px;
   border-radius: 10px;
-  color: var(--brand_dark);
+  color: white;
   font-weight: bold;
   font-size: 18px;
   letter-spacing: 2px;
@@ -545,7 +545,7 @@
 }
 
 .info-item h4 {
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 0;
   letter-spacing: 4px;
   display: flex;
@@ -564,9 +564,17 @@
 .container-bar {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   background-color: var(--card_gray);
   padding: 20px 10px;
   border-radius: 10px;
+}
+
+.container-bar h4 {
+  font-family: "OldSansBlack";
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-left: 10px;
 }
 
 .bar-item {
@@ -575,13 +583,12 @@
 
 .bar {
   height: 200px;
-  background-color: var(--brand_dark);
+  background-color: rgba(0, 0, 0, 0.1);
   position: relative;
   border-radius: 4px;
 }
 
 .bar-active {
-  background-color: var(--water);
   width: 50px;
   position: absolute;
   bottom: 0;
@@ -600,9 +607,10 @@
 }
 
 .value {
-  color: var(--light_gray);
+  color: var(--brand_dark);
+  color: white;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .label {
@@ -612,9 +620,6 @@
 }
 
 @media screen and (max-width: 998px) {
-  .value {
-    font-size: px;
-  }
   .label {
     font-size: 10px;
     max-width: 40px;

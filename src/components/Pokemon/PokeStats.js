@@ -3,6 +3,7 @@ import React from "react";
 const PokeStats = ({ stats, types }) => {
   return (
     <div className="container-bar mt-4">
+      <h4 className="w-100 mb-4">Status</h4>
       {stats.map((item, index) => {
         return (
           <div key={index} className="bar-item">

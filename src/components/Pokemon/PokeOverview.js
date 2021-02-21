@@ -21,7 +21,7 @@ const PokeOverview = ({
             {version == "sword" ? flavor_text_sword : flavor_text_shield}
           </h3>
 
-          <div className="container-versions d-flex justify-content-center justify-content-md-start mt-3">
+          <div className="container-versions d-flex justify-content-center justify-content-md-start mt-4">
             <button
               className={`${version == "sword" && version} mr-2`}
               onClick={() => setVersion("sword")}
