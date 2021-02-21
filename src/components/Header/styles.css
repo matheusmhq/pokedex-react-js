@@ -1,6 +1,5 @@
 .container-header {
-  background-color: var(--brand_dark);
-  border-bottom: 1px solid var(--card_gray);
+  background-color: var(--card_gray);
   color: white;
   padding: 30px 0;
 }

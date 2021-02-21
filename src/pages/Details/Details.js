@@ -7,6 +7,7 @@ import PokeCard from "../../components/Pokemon/PokeCard";
 import PokeOverview from "../../components/Pokemon/PokeOverview";
 import PokeInfo from "../../components/Pokemon/PokeInfo";
 import PokeStats from "../../components/Pokemon/PokeStats";
+import Footer from "../../components/Others/Footer";
 import api from "../../services/api";
 
 function Details({ history, ...props }) {
@@ -81,48 +82,47 @@ function Details({ history, ...props }) {
   }
 
   return (
-    <>
-      <div>
-        <Header />
-        <Container className="text-light mb-4">
-          {loading ? (
-            <LoadingDetails />
-          ) : (
-            <>
-              <Row>
-                <PokeCard
-                  name={details.name}
-                  id={details.id}
-                  types={details.types}
-                  click={false}
-                />
+    <div>
+      <Header />
+      <Container className="text-light mb-4">
+        {loading ? (
+          <LoadingDetails />
+        ) : (
+          <Row>
+            <Row>
+              <PokeCard
+                name={details.name}
+                id={details.id}
+                types={details.types}
+                click={false}
+              />
 
-                <Col xs={12} md={6}>
+              <Col xs={12} md={6}>
+                <div>
                   <div>
-                    <div>
-                      <PokeOverview
-                        flavor_text_sword={details.flavor_text_sword}
-                        flavor_text_shield={details.flavor_text_shield}
-                        flavor_text_default={details.flavor_text_default}
-                      />
-                      <PokeInfo
-                        height={details.height}
-                        capture_rate={details.capture_rate}
-                        weight={details.weight}
-                        abilities={details.abilities}
-                        gender_rate={details.gender_rate}
-                        habitat={details.habitat}
-                      />
-                    </div>
+                    <PokeOverview
+                      flavor_text_sword={details.flavor_text_sword}
+                      flavor_text_shield={details.flavor_text_shield}
+                      flavor_text_default={details.flavor_text_default}
+                    />
+                    <PokeInfo
+                      height={details.height}
+                      capture_rate={details.capture_rate}
+                      weight={details.weight}
+                      abilities={details.abilities}
+                      gender_rate={details.gender_rate}
+                      habitat={details.habitat}
+                    />
                   </div>
-                  <PokeStats stats={details.stats} types={details.types} />
-                </Col>
-              </Row>
-            </>
-          )}
-        </Container>
-      </div>
-    </>
+                </div>
+                <PokeStats stats={details.stats} types={details.types} />
+              </Col>
+            </Row>
+          </Row>
+        )}
+      </Container>
+      <Footer />
+    </div>
   );
 }
 

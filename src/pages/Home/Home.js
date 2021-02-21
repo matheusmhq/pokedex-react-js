@@ -6,6 +6,7 @@ import Header from "../../components/Header/Header";
 import PokeCard from "../../components/Pokemon/PokeCard";
 import Search from "../../components/Others/Search";
 import LoadingCard from "../../components/Loading/LoadingCard";
+import Footer from "../../components/Others/Footer";
 import api from "../../services/api";
 import Colors from "../../styles/Colors";
 
@@ -157,6 +158,7 @@ function Home({ history, ...props }) {
           </InfiniteScroll>
         )}
       </Container>
+      <Footer />
     </div>
   );
 }

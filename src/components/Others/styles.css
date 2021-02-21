@@ -27,3 +27,47 @@
   border: none;
   border-radius: 4px;
 }
+
+/* Footer */
+footer {
+  background-color: var(--card_gray);
+  padding: 20px 10px;
+  color: white;
+  margin-top: 4em;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+.credits-text {
+  color: #ddd;
+  font-family: "OldSansBlack";
+}
+
+footer .mhq {
+  color: white;
+  transition: 1s all;
+  font-family: "OldSansBlack";
+}
+
+footer .mhq:hover {
+  color: white;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+footer .view-code {
+  color: #ddd;
+  margin-top: 10px;
+  display: block;
+  transition: 1s all;
+  font-size: 12px;
+}
+
+footer .view-code:hover {
+  color: #ddd;
+  text-decoration: none;
+  opacity: 0.9;
+}
