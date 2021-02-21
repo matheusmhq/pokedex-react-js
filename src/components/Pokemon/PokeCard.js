@@ -6,7 +6,7 @@ import { GetImageForIndex } from "../../functions/utils";
 
 import pokemon_placeholder from "../../assets/img/pokemon-placeholder.png";
 
-const PokeCard = ({ name, id, types, click, xs, sm, lg }) => {
+const PokeCard = ({ name, id, types, click, xs, sm, md, lg }) => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const PokeCard = ({ name, id, types, click, xs, sm, lg }) => {
 
   return (
     <>
-      <Col xs={xs} sm={sm} lg={lg}>
+      <Col xs={xs} sm={sm} md={md} lg={lg}>
         <div className="container-card mb-4">
           <div>
             <div className="text-center">

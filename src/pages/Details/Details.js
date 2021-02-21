@@ -89,35 +89,37 @@ function Details({ history, ...props }) {
           <LoadingDetails />
         ) : (
           <Row>
-            <Row>
-              <PokeCard
-                name={details.name}
-                id={details.id}
-                types={details.types}
-                click={false}
-              />
+            <PokeCard
+              name={details.name}
+              id={details.id}
+              types={details.types}
+              click={false}
+              xs={12}
+              sm={12}
+              md={6}
+              lg={6}
+            />
 
-              <Col xs={12} md={6}>
+            <Col xs={12} md={6}>
+              <div>
                 <div>
-                  <div>
-                    <PokeOverview
-                      flavor_text_sword={details.flavor_text_sword}
-                      flavor_text_shield={details.flavor_text_shield}
-                      flavor_text_default={details.flavor_text_default}
-                    />
-                    <PokeInfo
-                      height={details.height}
-                      capture_rate={details.capture_rate}
-                      weight={details.weight}
-                      abilities={details.abilities}
-                      gender_rate={details.gender_rate}
-                      habitat={details.habitat}
-                    />
-                  </div>
+                  <PokeOverview
+                    flavor_text_sword={details.flavor_text_sword}
+                    flavor_text_shield={details.flavor_text_shield}
+                    flavor_text_default={details.flavor_text_default}
+                  />
+                  <PokeInfo
+                    height={details.height}
+                    capture_rate={details.capture_rate}
+                    weight={details.weight}
+                    abilities={details.abilities}
+                    gender_rate={details.gender_rate}
+                    habitat={details.habitat}
+                  />
                 </div>
-                <PokeStats stats={details.stats} types={details.types} />
-              </Col>
-            </Row>
+              </div>
+              <PokeStats stats={details.stats} types={details.types} />
+            </Col>
           </Row>
         )}
       </Container>

@@ -113,7 +113,6 @@ function Home({ history, ...props }) {
 
       <Container>
         <Search history={history} query={query} />
-
         {loading ? (
           <LoadingCard qty={12} />
         ) : (
@@ -150,6 +149,7 @@ function Home({ history, ...props }) {
                     click={true}
                     xs={12}
                     sm={6}
+                    md={6}
                     lg={3}
                   />
                 );
