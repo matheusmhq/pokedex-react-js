@@ -29,17 +29,17 @@ const PokeInfo = ({
 
       <div className="info-item">
         <h4>Abilities</h4>
-        <p>{abilities}</p>
+        <p>{abilities != null ? abilities : "-"}</p>
       </div>
 
       <div className="info-item mb-0">
         <h4>Gender</h4>
-        <p>{DetermineGenderRate(gender_rate)}</p>
+        <p>{gender_rate != null ? DetermineGenderRate(gender_rate) : "-"}</p>
       </div>
 
       <div className="info-item mb-0">
         <h4>Habitat</h4>
-        <p>{habitat}</p>
+        <p>{habitat != null ? habitat : "-"}</p>
       </div>
     </div>
   );

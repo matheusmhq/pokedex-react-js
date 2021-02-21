@@ -73,7 +73,7 @@ function Details({ history, ...props }) {
       abilities,
       gender_rate: response.data.gender_rate,
       capture_rate: response.data.capture_rate,
-      habitat: response.data.habitat.name,
+      habitat: response.data.habitat?.name,
       stats: poke.stats,
     };
 
