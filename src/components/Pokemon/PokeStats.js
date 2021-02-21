@@ -1,12 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 
-const PokeStats = ({ stats }) => {
-  console.log("stats");
-  console.log(stats);
+const PokeStats = ({ stats, types }) => {
   return (
-    <>
-      <p>PokeStats</p>
-    </>
+    <div className="container-bar mt-4">
+      {stats.map((item, index) => {
+        return (
+          <div key={index} className="bar-item">
+            <div className="bar">
+              <div
+                style={{ height: item.base_stat }}
+                className={`bar-active ${types[0].type.name}`}
+              />
+              <div className="container-label">
+                <p className="value">{item.base_stat}</p>
+              </div>
+            </div>
+            <p className="mb-0 mt-2 text-center label limit-text">
+              {item.stat.name}
+            </p>
+          </div>
+        );
+      })}
+    </div>
   );
 };
 

@@ -38,7 +38,7 @@ const PokeInfo = ({
       </div>
 
       <div className="info-item mb-0">
-        <h4>habitat</h4>
+        <h4>Habitat</h4>
         <p>{habitat}</p>
       </div>
     </div>

@@ -84,7 +84,7 @@ function Details({ history, ...props }) {
     <>
       <div>
         <Header />
-        <Container className="text-light">
+        <Container className="text-light mb-4">
           {loading ? (
             <LoadingDetails />
           ) : (
@@ -115,9 +115,9 @@ function Details({ history, ...props }) {
                       />
                     </div>
                   </div>
+                  <PokeStats stats={details.stats} types={details.types} />
                 </Col>
               </Row>
-              <PokeStats stats={details.stats} />
             </>
           )}
         </Container>

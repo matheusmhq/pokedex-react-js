@@ -147,6 +147,9 @@ function Home({ history, ...props }) {
                     id={item.id}
                     types={item.types}
                     click={true}
+                    xs={12}
+                    sm={6}
+                    lg={3}
                   />
                 );
               })}

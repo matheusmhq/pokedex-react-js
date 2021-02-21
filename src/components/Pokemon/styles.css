@@ -559,3 +559,69 @@
   font-size: 16px;
   font-family: "OldSansBlack";
 }
+
+/* Stats */
+.container-bar {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--card_gray);
+  padding: 20px 10px;
+  border-radius: 10px;
+}
+
+.bar-item {
+  width: 50px;
+}
+
+.bar {
+  height: 200px;
+  background-color: var(--brand_dark);
+  position: relative;
+  border-radius: 4px;
+}
+
+.bar-active {
+  background-color: var(--water);
+  width: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.container-label {
+  width: 100%;
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.value {
+  color: var(--light_gray);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.label {
+  font-family: "OldSansBlack";
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 998px) {
+  .value {
+    font-size: px;
+  }
+  .label {
+    font-size: 10px;
+    max-width: 40px;
+  }
+
+  .bar,
+  .bar-active {
+    width: 40px;
+  }
+}

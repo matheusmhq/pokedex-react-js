@@ -5,8 +5,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import "./styles.css";
 
-const Search = ({ history, ...props }) => {
-  const { query } = props;
+const Search = ({ history, query }) => {
   const [searchQuery, setSeachQuery] = useState(query || "");
 
   useEffect(() => {

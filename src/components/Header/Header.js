@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 import "./styles.css";
 import logo from "../../assets/img/logo.png";
 
-function Header() {
+const Header = () => {
   return (
     <header className="container-header mb-4">
       <Container fluid>
@@ -16,6 +16,6 @@ function Header() {
       </Container>
     </header>
   );
-}
+};
 
 export default Header;
