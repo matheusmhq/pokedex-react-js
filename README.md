@@ -22,7 +22,7 @@
   <a href="#demo">Demo</a> •
   <a href="#libs">Libs</a> •
   <a href="#functionalities">Functionalities</a> •  
-  <a href="#getting_started">Getting Started</a> •
+  <a href="#getting-started">Getting Started</a> s
 </p>
 
 <p align="center">
