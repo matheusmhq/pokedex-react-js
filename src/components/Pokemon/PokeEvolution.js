@@ -49,7 +49,12 @@ const PokeEvolution = ({ data, types }) => {
       <div className="w-100 d-flex flex-column flex-md-row flex-wrap justify-content-between">
         <div className={`evolution-item ${types[0].type.name}`}>
           <figure>
-            <img src={GetImageFromId(evolution.id)} className="evolution-img" />
+            <a href={`/details/${evolution.name}`}>
+              <img
+                src={GetImageFromId(evolution.id)}
+                className="evolution-img"
+              />
+            </a>
           </figure>
           <p className="pokemon-name">{evolution.name}</p>
           <p className="pokemon-number">
@@ -67,10 +72,12 @@ const PokeEvolution = ({ data, types }) => {
             </div>
             <div className={`evolution-item ${types[0].type.name}`}>
               <figure>
-                <img
-                  src={GetImageFromId(evolution.children[0].id)}
-                  className="evolution-img"
-                />
+                <a href={`/details/${evolution.children[0].name}`}>
+                  <img
+                    src={GetImageFromId(evolution.children[0].id)}
+                    className="evolution-img"
+                  />
+                </a>
               </figure>
               <p className="pokemon-name">{evolution.children[0].name}</p>
               <p className="pokemon-number">
@@ -88,10 +95,16 @@ const PokeEvolution = ({ data, types }) => {
                 </div>
                 <div className={`evolution-item ${types[0].type.name}`}>
                   <figure>
-                    <img
-                      src={GetImageFromId(evolution.children[0].children[0].id)}
-                      className="evolution-img"
-                    />
+                    <a
+                      href={`/details/${evolution.children[0].children[0].name}`}
+                    >
+                      <img
+                        src={GetImageFromId(
+                          evolution.children[0].children[0].id
+                        )}
+                        className="evolution-img"
+                      />
+                    </a>
                   </figure>
                   <p className="pokemon-name">
                     {evolution.children[0].children[0].name}
