@@ -3,13 +3,11 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import LoadingDetails from "../../components/Loading/LoadingDetails";
 import Header from "../../components/Header/Header";
-import PokeCard from "./PokeCard";
-import PokeOverview from "./PokeOverview";
-import PokeInfo from "./PokeInfo";
-import PokeStats from "./PokeStats";
+import PokeCard from "../../components/Pokemon/PokeCard";
+import PokeOverview from "../../components/Pokemon/PokeOverview";
+import PokeInfo from "../../components/Pokemon/PokeInfo";
+import PokeStats from "../../components/Pokemon/PokeStats";
 import api from "../../services/api";
-import "./styles.css";
-import LoadingCard from "../../components/Loading/LoadingCard";
 
 function Details({ history, ...props }) {
   const { name } = props.match.params;
@@ -92,16 +90,15 @@ function Details({ history, ...props }) {
           ) : (
             <>
               <Row>
-                <Col xs={12} md={6}>
-                  <PokeCard
-                    name={details.name}
-                    id={details.id}
-                    types={details.types}
-                  />
-                </Col>
+                <PokeCard
+                  name={details.name}
+                  id={details.id}
+                  types={details.types}
+                  click={false}
+                />
 
                 <Col xs={12} md={6}>
-                  <div className="details-right">
+                  <div>
                     <div>
                       <PokeOverview
                         flavor_text_sword={details.flavor_text_sword}

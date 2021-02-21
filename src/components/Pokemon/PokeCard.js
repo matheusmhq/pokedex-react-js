@@ -6,55 +6,49 @@ import { GetImageForIndex } from "../../functions/utils";
 
 import pokemon_placeholder from "../../assets/img/pokemon-placeholder.png";
 
-function CardPokemon({ ...props }) {
-  const { pokemon } = props;
-
+const PokeCard = ({ name, id, types, click, xs, sm, lg }) => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
     setError(false);
-  }, [pokemon]);
-
-  //console.log(pokemon);
+  }, [id]);
 
   return (
     <>
-      <Col xs={12} sm={6} lg={3}>
+      <Col xs={xs} sm={sm} lg={lg}>
         <div className="container-card mb-4">
           <div>
             <div className="text-center">
-              <h2 className="pokemon-name limit-text my-0">{pokemon.name}</h2>
-              <p className="pokemon-number mb-0"># {pokemon.number}</p>
+              <h2 className="pokemon-name limit-text my-0">{name}</h2>
+              <p className="pokemon-number mb-0">
+                # {id.toString().padStart(3, "0")}
+              </p>
             </div>
           </div>
           <a
-            className={`container-card-img position-relative my-4 container-${pokemon.types[0].type.name}`}
-            href={`/details/${pokemon.name}`}
+            className={`container-card-img position-relative my-4 container-${types[0].type.name}`}
+            href={click ? `/details/${name}` : "javascript:void"}
           >
             {error ? (
-              <img
-                alt={pokemon.name}
-                title={pokemon.name}
-                src={pokemon_placeholder}
-              />
+              <img alt={name} title={name} src={pokemon_placeholder} />
             ) : (
               <img
                 onError={(e) => setError(true)}
                 className="animation-up-down"
-                alt={pokemon.name}
-                title={pokemon.name}
-                src={GetImageForIndex(pokemon.id)}
+                alt={name}
+                title={name}
+                src={GetImageForIndex(id)}
               />
             )}
           </a>
           <div className="w-100  d-flex justify-content-between">
-            {pokemon.types.map((item, index) => {
+            {types.map((item, index) => {
               return (
                 <div
                   key={index}
                   className={` 
                   ${item.type.name}
-                  type-item ${pokemon.types.length == 1 && "w-100"}`}
+                  type-item ${types.length == 1 && "w-100"}`}
                 >
                   <p className="mb-0 text-uppercase">{item.type.name}</p>
                 </div>
@@ -65,6 +59,6 @@ function CardPokemon({ ...props }) {
       </Col>
     </>
   );
-}
+};
 
-export default CardPokemon;
+export default PokeCard;

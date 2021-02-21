@@ -12,10 +12,12 @@ const PokeOverview = ({
   return (
     <>
       {flavor_text_sword == "" && flavor_text_shield == "" ? (
-        <h3 className="text-center text-md-left">{flavor_text_default}</h3>
+        <h3 className="text-center text-md-left overview">
+          {flavor_text_default}
+        </h3>
       ) : (
         <>
-          <h3 className="text-center text-md-left">
+          <h3 className="text-center text-md-left overview">
             {version == "sword" ? flavor_text_sword : flavor_text_shield}
           </h3>
 

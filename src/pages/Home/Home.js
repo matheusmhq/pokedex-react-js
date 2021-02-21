@@ -3,7 +3,7 @@ import { Container, Row, Spinner } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import Header from "../../components/Header/Header";
-import CardPokemon from "../../components/CardPokemon/CardPokemon";
+import PokeCard from "../../components/Pokemon/PokeCard";
 import Search from "../../components/Others/Search";
 import LoadingCard from "../../components/Loading/LoadingCard";
 import api from "../../services/api";
@@ -140,7 +140,15 @@ function Home({ history, ...props }) {
           >
             <Row>
               {pokemons.map((item) => {
-                return <CardPokemon key={item.id} pokemon={item} />;
+                return (
+                  <PokeCard
+                    key={item.id}
+                    name={item.name}
+                    id={item.id}
+                    types={item.types}
+                    click={true}
+                  />
+                );
               })}
             </Row>
           </InfiniteScroll>

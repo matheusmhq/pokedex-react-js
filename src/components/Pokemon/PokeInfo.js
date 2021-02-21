@@ -10,7 +10,6 @@ const PokeInfo = ({
   gender_rate,
   habitat,
 }) => {
-  console.log("height " + height);
   return (
     <div className="container-info d-flex flex-wrap mt-4">
       <div className="info-item">
