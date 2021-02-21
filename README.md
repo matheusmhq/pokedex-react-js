@@ -43,7 +43,6 @@ Key Libs used in this React project are:
 | [Bootstrap](https://react-bootstrap.github.io/) | The most popular front-end framework Rebuilt for React. |
 | [Router Dom](https://reactrouter.com/) | The React Router Dom is a complete lib for route control. |
 | [Axios](https://github.com/axios/axios) | Promise based HTTP client for the browser and node.js |
-| [Moment](https://github.com/moment/moment/) | A JavaScript date library for parsing, validating, manipulating, and formatting dates. |
 
 # Functionalities
 
