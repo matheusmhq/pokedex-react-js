@@ -49,7 +49,7 @@ Key Libs used in this React project are:
 
 - [Home (/)](https://pokedex-up.netlify.app/) - List **_pokemons_**, filter with base in name or number, has pagination.
 
-- [Details (/details)](https://pokedex-up.netlify.app/details) - Shows details (**_height, weight, abilities, stats, evolution etc..._**) about a specific pokemon.
+- [Details (/details)](https://pokedex-up.netlify.app/details/bulbasaur) - Shows details (**_height, weight, abilities, stats, evolution etc..._**) about a specific pokemon.
 
 
 
