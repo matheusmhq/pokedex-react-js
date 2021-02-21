@@ -16,7 +16,7 @@ const Footer = () => {
       <a
         className="view-code"
         target="_blank"
-        href="https://github.com/matheusmhq/tmdb-react-js"
+        href="https://github.com/matheusmhq/pokedex-react-js"
       >
         View code on Github
         <FontAwesomeIcon className="ml-2" icon={faGithub} />
