@@ -11,7 +11,7 @@ const PokeInfo = ({
   habitat,
 }) => {
   return (
-    <div className="container-info d-flex flex-wrap mt-4">
+    <div className="container-info d-flex flex-wrap my-4">
       <div className="info-item">
         <h4>Height</h4>
         <p>{Math.round(height * 10) / 100} m</p>
