@@ -17,7 +17,7 @@
 .container-input-btn {
   display: flex;
   justify-content: space-between;
-  border: 1px solid var(--dark_gray);
+  border: 1px solid var(--card_gray);
   padding: 10px;
   border-radius: 10px;
 }
