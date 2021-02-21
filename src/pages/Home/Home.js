@@ -9,6 +9,7 @@ import LoadingCard from "../../components/Loading/LoadingCard";
 import Footer from "../../components/Others/Footer";
 import api from "../../services/api";
 import Colors from "../../styles/Colors";
+import { SavePokemons, VerifyPokemons } from "../../functions/storage";
 
 var pokemonsOriginal = [];
 const perPage = 40;
@@ -44,25 +45,35 @@ function Home({ history, ...props }) {
 
   useEffect(() => {
     setLoading(true);
-    api
-      .get(`/pokemon?limit=${limit}`)
-      .then((response) => {
-        if (response.status == 200) {
-          console.log("LoadPokemons success");
-          console.log(response.data);
-          LoadPokemons(response.data.results);
-        }
-      })
-      .catch((error) => {
-        console.log("LoadPokemons error " + error);
-      });
+    var listLocal = VerifyPokemons();
+    if (listLocal == null) {
+      LoadPokemons();
+      return false;
+    }
+
+    pokemonsOriginal = listLocal;
+    if (query != undefined) {
+      var filterPokemons = listLocal.filter(
+        (i) => i.name.includes(query.toLowerCase()) || i.number.includes(query)
+      );
+
+      max = filterPokemons.length;
+      setPokemons(filterPokemons.slice(0, perPage));
+    } else {
+      max = listLocal.length;
+      setPokemons(listLocal.slice(0, perPage));
+    }
+    setLoading(false);
   }, []);
 
-  async function LoadPokemons(list) {
+  async function LoadPokemons() {
+    let pokeList = await api.get(`/pokemon?limit=${limit}`);
     var all = [];
-    for (var i = 0; i < list.length; i++) {
-      let pokeDetails = await api.get(`/pokemon/${list[i].name}`);
-      console.log(pokeDetails.data);
+    for (var i = 0; i < pokeList.data.results.length; i++) {
+      let pokeDetails = await api.get(
+        `/pokemon/${pokeList.data.results[i].name}`
+      );
+
       var obj = {
         name: pokeDetails.data.name,
         id: pokeDetails.data.id,
@@ -75,18 +86,10 @@ function Home({ history, ...props }) {
       all.push(obj);
     }
 
+    SavePokemons(all);
     pokemonsOriginal = all;
-    if (query != undefined) {
-      var filterPokemons = all.filter(
-        (i) => i.name.includes(query.toLowerCase()) || i.number.includes(query)
-      );
-
-      max = filterPokemons.length;
-      setPokemons(filterPokemons.slice(0, perPage));
-    } else {
-      max = all.length;
-      setPokemons(all.slice(0, perPage));
-    }
+    max = all.length;
+    setPokemons(all);
     setLoading(false);
   }
 
@@ -141,9 +144,8 @@ function Home({ history, ...props }) {
             <Row>
               {pokemons.map((item) => {
                 return (
-                  <Col xs={12} sm={6} lg={3}>
+                  <Col key={item.id} xs={12} sm={6} lg={3}>
                     <PokeCard
-                      key={item.id}
                       name={item.name}
                       id={item.id}
                       types={item.types}
