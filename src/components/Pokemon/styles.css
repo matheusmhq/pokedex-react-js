@@ -533,7 +533,8 @@
 .container-versions button {
   background: none;
   border: none;
-  width: 46px;
+  width: 70px;
+  height: 40px;
 }
 
 .container-versions img {
