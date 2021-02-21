@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="d-flex justify-content-center align-items-center">
-        <p className="mr-1 credits-text">Desenvolvido por </p>
+        <p className="mr-1 credits-text">Developed by</p>
         <a className="mhq" target="_blank" href="https://matheusmhq.com.br/">
           Matheus Henrique
         </a>
@@ -18,7 +18,7 @@ const Footer = () => {
         target="_blank"
         href="https://github.com/matheusmhq/tmdb-react-js"
       >
-        Veja o código no Github
+        View code on Github
         <FontAwesomeIcon className="ml-2" icon={faGithub} />
       </a>
     </footer>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Spinner } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import Header from "../../components/Header/Header";
@@ -12,7 +12,7 @@ import Colors from "../../styles/Colors";
 
 var pokemonsOriginal = [];
 const perPage = 40;
-const limit = 898;
+const limit = 100;
 var max = 0;
 
 function Home({ history, ...props }) {
@@ -61,16 +61,16 @@ function Home({ history, ...props }) {
   async function LoadPokemons(list) {
     var all = [];
     for (var i = 0; i < list.length; i++) {
-      let response = await api.get(`/pokemon/${list[i].name}`);
-      console.log(response.data);
+      let pokeDetails = await api.get(`/pokemon/${list[i].name}`);
+      console.log(pokeDetails.data);
       var obj = {
-        name: response.data.name,
-        id: response.data.id,
-        types: response.data.types,
-        number: response.data.id.toString().padStart(3, "0"),
+        name: pokeDetails.data.name,
+        id: pokeDetails.data.id,
+        types: pokeDetails.data.types,
+        number: pokeDetails.data.id.toString().padStart(3, "0"),
         image:
-          response.data.sprites.versions["generation-v"]["black-white"].animated
-            .front_default,
+          pokeDetails.data.sprites.versions["generation-v"]["black-white"]
+            .animated.front_default,
       };
       all.push(obj);
     }
@@ -141,17 +141,15 @@ function Home({ history, ...props }) {
             <Row>
               {pokemons.map((item) => {
                 return (
-                  <PokeCard
-                    key={item.id}
-                    name={item.name}
-                    id={item.id}
-                    types={item.types}
-                    click={true}
-                    xs={12}
-                    sm={6}
-                    md={6}
-                    lg={3}
-                  />
+                  <Col xs={12} sm={6} lg={3}>
+                    <PokeCard
+                      key={item.id}
+                      name={item.name}
+                      id={item.id}
+                      types={item.types}
+                      click={true}
+                    />
+                  </Col>
                 );
               })}
             </Row>

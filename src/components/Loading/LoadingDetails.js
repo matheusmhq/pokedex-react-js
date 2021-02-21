@@ -28,7 +28,17 @@ const LoadingDetails = () => {
             <Skeleton height={175} />
           </SkeletonTheme>
         </div>
+      </Col>
 
+      <Col xs={12}>
+        <div style={{ height: 290 }} className="loading-item mb-3 p-3">
+          <SkeletonTheme color={Colors.brand_dark} highlightColor="#444">
+            <Skeleton height={250} />
+          </SkeletonTheme>
+        </div>
+      </Col>
+
+      <Col xs={12}>
         <div style={{ height: 290 }} className="loading-item mb-3 p-3">
           <SkeletonTheme color={Colors.brand_dark} highlightColor="#444">
             <Skeleton height={250} />

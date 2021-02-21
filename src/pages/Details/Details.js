@@ -7,8 +7,10 @@ import PokeCard from "../../components/Pokemon/PokeCard";
 import PokeOverview from "../../components/Pokemon/PokeOverview";
 import PokeInfo from "../../components/Pokemon/PokeInfo";
 import PokeStats from "../../components/Pokemon/PokeStats";
+import PokeEvolution from "../../components/Pokemon/PokeEvolution";
 import Footer from "../../components/Others/Footer";
 import api from "../../services/api";
+import axios from "axios";
 
 function Details({ history, ...props }) {
   const { name } = props.match.params;
@@ -37,14 +39,13 @@ function Details({ history, ...props }) {
   }, []);
 
   async function LoadSpecies(poke) {
-    let response = await api.get(`/pokemon-species/${name}`);
-
-    console.log(response.data);
+    let pokeSpecies = await api.get(`/pokemon-species/${name}`);
+    let pokeEvolution = await axios.get(pokeSpecies.data.evolution_chain.url);
 
     var flavor_text_sword = "";
     var flavor_text_shield = "";
     var flavor_text_default = "";
-    response.data.flavor_text_entries.map((item) => {
+    pokeSpecies.data.flavor_text_entries.map((item) => {
       if (item.language.name != "en") return false;
       if (item.version.name == "sword") {
         flavor_text_sword = item.flavor_text;
@@ -71,10 +72,11 @@ function Details({ history, ...props }) {
       height: poke.height,
       weight: poke.weight,
       abilities,
-      gender_rate: response.data.gender_rate,
-      capture_rate: response.data.capture_rate,
-      habitat: response.data.habitat?.name,
+      gender_rate: pokeSpecies.data.gender_rate,
+      capture_rate: pokeSpecies.data.capture_rate,
+      habitat: pokeSpecies.data.habitat?.name,
       stats: poke.stats,
+      evolution: pokeEvolution.data.chain,
     };
 
     setDetails(obj);
@@ -88,39 +90,40 @@ function Details({ history, ...props }) {
         {loading ? (
           <LoadingDetails />
         ) : (
-          <Row>
-            <PokeCard
-              name={details.name}
-              id={details.id}
-              types={details.types}
-              click={false}
-              xs={12}
-              sm={12}
-              md={6}
-              lg={6}
-            />
+          <>
+            <Row>
+              <Col xs={12} md={6}>
+                <PokeCard
+                  name={details.name}
+                  id={details.id}
+                  types={details.types}
+                  click={false}
+                />
+              </Col>
 
-            <Col xs={12} md={6}>
-              <div>
-                <div>
-                  <PokeOverview
-                    flavor_text_sword={details.flavor_text_sword}
-                    flavor_text_shield={details.flavor_text_shield}
-                    flavor_text_default={details.flavor_text_default}
-                  />
-                  <PokeInfo
-                    height={details.height}
-                    capture_rate={details.capture_rate}
-                    weight={details.weight}
-                    abilities={details.abilities}
-                    gender_rate={details.gender_rate}
-                    habitat={details.habitat}
-                  />
-                </div>
-              </div>
-              <PokeStats stats={details.stats} types={details.types} />
-            </Col>
-          </Row>
+              <Col xs={12} md={6}>
+                <PokeOverview
+                  flavor_text_sword={details.flavor_text_sword}
+                  flavor_text_shield={details.flavor_text_shield}
+                  flavor_text_default={details.flavor_text_default}
+                />
+
+                <PokeInfo
+                  height={details.height}
+                  capture_rate={details.capture_rate}
+                  weight={details.weight}
+                  abilities={details.abilities}
+                  gender_rate={details.gender_rate}
+                  habitat={details.habitat}
+                />
+              </Col>
+
+              <Col xs={12}>
+                <PokeStats stats={details.stats} types={details.types} />
+              </Col>
+            </Row>
+            <PokeEvolution data={details.evolution} types={details.types} />
+          </>
         )}
       </Container>
       <Footer />

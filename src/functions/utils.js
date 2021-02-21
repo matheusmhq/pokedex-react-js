@@ -2,7 +2,7 @@ export function RemoveAspas(val) {
   if (val != null) return val.replace(/[\\"]/g, "");
 }
 
-export function GetImageForIndex(id) {
+export function GetImageFromId(id) {
   id = id.toString().padStart(3, "0");
   //return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
   //return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;

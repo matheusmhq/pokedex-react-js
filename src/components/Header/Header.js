@@ -6,7 +6,7 @@ import logo from "../../assets/img/logo.png";
 
 const Header = () => {
   return (
-    <header className="container-header mb-4">
+    <header className="container-header mb-5">
       <Container fluid>
         <div className="text-center">
           <a href="/">

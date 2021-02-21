@@ -189,6 +189,79 @@ input[type="color"]:focus,
   background-color: var(--fairy);
 }
 
+/* Colors types text */
+.text-normal {
+  color: var(--normal);
+}
+
+.text-fire {
+  color: var(--fire);
+}
+
+.text-water {
+  color: var(--water);
+}
+
+.text-electric {
+  color: var(--electric);
+}
+
+.text-grass {
+  color: var(--grass);
+}
+
+.text-ice {
+  color: var(--ice);
+}
+
+.text-fighting {
+  color: var(--fighting);
+}
+
+.text-poison {
+  color: var(--poison);
+}
+
+.text-ground {
+  color: var(--ground);
+}
+
+.text-flying {
+  color: var(--flying);
+}
+
+.text-psychic {
+  color: var(--psychic);
+}
+
+.text-bug {
+  color: var(--bug);
+}
+
+.text-rock {
+  color: var(--rock);
+}
+
+.text-ghost {
+  color: var(--ghost);
+}
+
+.text-dragon {
+  color: var(--dragon);
+}
+
+.text-dark {
+  color: var(--dark);
+}
+
+.text-steel {
+  color: var(--steel);
+}
+
+.text-fairy {
+  color: var(--fairy);
+}
+
 .limit-text {
   overflow: hidden;
   text-overflow: ellipsis;
