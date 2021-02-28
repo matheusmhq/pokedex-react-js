@@ -114,7 +114,7 @@ function Home({ history, ...props }) {
     <div>
       <Header />
 
-      <Container>
+      <Container fluid>
         <Search history={history} query={query} />
         {loading ? (
           <LoadingCard qty={12} />

@@ -86,7 +86,7 @@ function Details({ history, ...props }) {
   return (
     <div>
       <Header />
-      <Container className="text-light mb-4">
+      <Container fluid className="text-light mb-4">
         {loading ? (
           <LoadingDetails />
         ) : (
