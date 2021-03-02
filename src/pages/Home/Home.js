@@ -22,11 +22,18 @@ function Home({ history, ...props }) {
   const [loading, setLoading] = useState(true);
   const [pokemons, setPokemons] = useState([]);
 
+  function HandlerResult(maximum, pokemons) {
+    max = maximum;
+    setPokemons(pokemons);
+  }
+
   useEffect(() => {
     setLoading(true);
     if (query == undefined) {
-      max = pokemonsOriginal.length;
-      setPokemons(pokemonsOriginal.slice(0, perPage));
+      HandlerResult(
+        pokemonsOriginal.length,
+        pokemonsOriginal.slice(0, perPage)
+      );
       setLoading(false);
       return false;
     }
@@ -38,8 +45,7 @@ function Home({ history, ...props }) {
       );
     });
 
-    max = filterPokemons.length;
-    setPokemons(filterPokemons.slice(0, perPage));
+    HandlerResult(filterPokemons.length, filterPokemons.slice(0, perPage));
     setLoading(false);
   }, [query]);
 
@@ -57,11 +63,9 @@ function Home({ history, ...props }) {
         (i) => i.name.includes(query.toLowerCase()) || i.number.includes(query)
       );
 
-      max = filterPokemons.length;
-      setPokemons(filterPokemons.slice(0, perPage));
+      HandlerResult(filterPokemons.length, filterPokemons.slice(0, perPage));
     } else {
-      max = listLocal.length;
-      setPokemons(listLocal.slice(0, perPage));
+      HandlerResult(listLocal.length, listLocal.slice(0, perPage));
     }
     setLoading(false);
   }, []);
@@ -88,8 +92,7 @@ function Home({ history, ...props }) {
 
     SavePokemons(all);
     pokemonsOriginal = all;
-    max = all.length;
-    setPokemons(all);
+    HandlerResult(all.length, all);
     setLoading(false);
   }
 

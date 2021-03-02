@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Col } from "react-bootstrap";
 
 import "./styles.css";
-import { GetImageFromId } from "../../functions/utils";
+import { GetImageById } from "../../functions/utils";
 
 import pokemon_placeholder from "../../assets/img/pokemon-placeholder.png";
 
@@ -35,7 +35,7 @@ const PokeCard = ({ name, id, types, click }) => {
               className="animation-up-down"
               alt={name}
               title={name}
-              src={GetImageFromId(id)}
+              src={GetImageById(id)}
             />
           )}
         </a>

@@ -9,6 +9,7 @@ import PokeInfo from "../../components/Pokemon/PokeInfo";
 import PokeStats from "../../components/Pokemon/PokeStats";
 import PokeEvolution from "../../components/Pokemon/PokeEvolution";
 import Footer from "../../components/Others/Footer";
+import ModalError from "../../components/Others/ModalError";
 import api from "../../services/api";
 import axios from "axios";
 
@@ -17,6 +18,7 @@ function Details({ history, ...props }) {
 
   const [loading, setLoading] = useState(true);
   const [details, setDetails] = useState({});
+  const [showModalError, setShowModalError] = useState(false);
 
   useEffect(() => {
     function LoadPokemon() {
@@ -31,6 +33,7 @@ function Details({ history, ...props }) {
         })
         .catch((error) => {
           console.log("LoadDetails error " + error);
+          setShowModalError(true);
         });
     }
 
@@ -39,53 +42,63 @@ function Details({ history, ...props }) {
   }, []);
 
   async function LoadSpecies(poke) {
-    let pokeSpecies = await api.get(`/pokemon-species/${name}`);
-    let pokeEvolution = await axios.get(pokeSpecies.data.evolution_chain.url);
+    try {
+      let pokeSpecies = await api.get(`/pokemon-species/${name}`);
+      let pokeEvolution = await axios.get(pokeSpecies.data.evolution_chain.url);
 
-    var flavor_text_sword = "";
-    var flavor_text_shield = "";
-    var flavor_text_default = "";
-    pokeSpecies.data.flavor_text_entries.map((item) => {
-      if (item.language.name != "en") return false;
-      if (item.version.name == "sword") {
-        flavor_text_sword = item.flavor_text;
-      } else if (item.version.name == "shield") {
-        flavor_text_shield = item.flavor_text;
-      }
-      flavor_text_default = item.flavor_text;
-    });
+      var flavor_text_sword = "";
+      var flavor_text_shield = "";
+      var flavor_text_default = "";
+      pokeSpecies.data.flavor_text_entries.map((item) => {
+        if (item.language.name != "en") return false;
+        if (item.version.name == "sword") {
+          flavor_text_sword = item.flavor_text;
+        } else if (item.version.name == "shield") {
+          flavor_text_shield = item.flavor_text;
+        }
+        flavor_text_default = item.flavor_text;
+      });
 
-    var abilities = "";
-    poke.abilities.map((item, index) => {
-      abilities += `${item.ability.name}${
-        poke.abilities.length == index + 1 ? "" : ", "
-      }`;
-    });
+      var abilities = "";
+      poke.abilities.map((item, index) => {
+        abilities += `${item.ability.name}${
+          poke.abilities.length == index + 1 ? "" : ", "
+        }`;
+      });
 
-    var obj = {
-      id: poke.id,
-      name: poke.name,
-      types: poke.types,
-      flavor_text_sword,
-      flavor_text_shield,
-      flavor_text_default,
-      height: poke.height,
-      weight: poke.weight,
-      abilities,
-      gender_rate: pokeSpecies.data.gender_rate,
-      capture_rate: pokeSpecies.data.capture_rate,
-      habitat: pokeSpecies.data.habitat?.name,
-      stats: poke.stats,
-      evolution: pokeEvolution.data.chain,
-    };
+      var obj = {
+        id: poke.id,
+        name: poke.name,
+        types: poke.types,
+        flavor_text_sword,
+        flavor_text_shield,
+        flavor_text_default,
+        height: poke.height,
+        weight: poke.weight,
+        abilities,
+        gender_rate: pokeSpecies.data.gender_rate,
+        capture_rate: pokeSpecies.data.capture_rate,
+        habitat: pokeSpecies.data.habitat?.name,
+        stats: poke.stats,
+        evolution: pokeEvolution.data.chain,
+      };
 
-    setDetails(obj);
-    setLoading(false);
+      setDetails(obj);
+      setLoading(false);
+    } catch (error) {
+      console.log("LoadSpecies error " + error);
+      setShowModalError(true);
+    }
   }
 
   return (
     <div>
       <Header />
+      <ModalError
+        history={history}
+        show_modal_error={showModalError}
+        msg={"Ops! Could not load the information for this pokemon."}
+      />
       <Container fluid className="text-light mb-4">
         {loading ? (
           <LoadingDetails />

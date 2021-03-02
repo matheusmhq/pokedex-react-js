@@ -69,3 +69,20 @@ footer .view-code:hover {
   text-decoration: none;
   opacity: 0.9;
 }
+
+/* Modal Error */
+.modal-content {
+  background-color: var(--card_gray) !important;
+  color: white;
+}
+
+.modal-content button {
+  background-color: var(--brand_dark);
+  border: none;
+}
+
+.modal-content button:hover {
+  opacity: 0.9;
+  background-color: var(--brand_dark);
+  border: none;
+}

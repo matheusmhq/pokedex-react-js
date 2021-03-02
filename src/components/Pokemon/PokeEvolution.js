@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-import { GetImageFromId } from "../../functions/utils";
+import { GetImageById } from "../../functions/utils";
 import "./styles.css";
 
 const PokeEvolution = ({ data, types }) => {
@@ -50,10 +50,7 @@ const PokeEvolution = ({ data, types }) => {
         <div className={`evolution-item ${types[0].type.name}`}>
           <figure>
             <a href={`/details/${evolution.name}`}>
-              <img
-                src={GetImageFromId(evolution.id)}
-                className="evolution-img"
-              />
+              <img src={GetImageById(evolution.id)} className="evolution-img" />
             </a>
           </figure>
           <p className="pokemon-name">{evolution.name}</p>
@@ -74,7 +71,7 @@ const PokeEvolution = ({ data, types }) => {
               <figure>
                 <a href={`/details/${evolution.children[0].name}`}>
                   <img
-                    src={GetImageFromId(evolution.children[0].id)}
+                    src={GetImageById(evolution.children[0].id)}
                     className="evolution-img"
                   />
                 </a>
@@ -99,9 +96,7 @@ const PokeEvolution = ({ data, types }) => {
                       href={`/details/${evolution.children[0].children[0].name}`}
                     >
                       <img
-                        src={GetImageFromId(
-                          evolution.children[0].children[0].id
-                        )}
+                        src={GetImageById(evolution.children[0].children[0].id)}
                         className="evolution-img"
                       />
                     </a>
