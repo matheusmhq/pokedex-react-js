@@ -13,7 +13,7 @@ import { SavePokemons, VerifyPokemons } from "../../functions/storage";
 
 var pokemonsOriginal = [];
 const perPage = 40;
-const limit = 898; //default = 898
+const limit = 350; //default = 898
 var max = 0;
 
 function Home({ history, ...props }) {
