@@ -12,8 +12,8 @@ import Colors from "../../styles/Colors";
 import { SavePokemons, VerifyPokemons } from "../../functions/storage";
 
 var pokemonsOriginal = [];
-const perPage = 40;
-const limit = 100; //default = 898
+const perPage = 16;
+const limit = 48; //default = 898
 var max = 0;
 
 function Home({ history, ...props }) {
