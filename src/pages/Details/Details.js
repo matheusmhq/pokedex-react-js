@@ -26,20 +26,18 @@ function Details({ history, ...props }) {
         .get(`/pokemon/${name}`)
         .then((response) => {
           if (response.status == 200) {
-            console.log("LoadDetails success");
-            console.log(response.data);
             LoadSpecies(response.data);
           }
         })
         .catch((error) => {
-          console.log("LoadDetails error " + error);
           setShowModalError(true);
         });
     }
 
     if (name == undefined) history.push({ pathname: "/" });
+    window.scrollTo(0, 0);
     LoadPokemon();
-  }, []);
+  }, [window.location.pathname]);
 
   async function LoadSpecies(poke) {
     try {
@@ -86,7 +84,6 @@ function Details({ history, ...props }) {
       setDetails(obj);
       setLoading(false);
     } catch (error) {
-      console.log("LoadSpecies error " + error);
       setShowModalError(true);
     }
   }

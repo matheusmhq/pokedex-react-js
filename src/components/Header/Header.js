@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import "./styles.css";
 import logo from "../../assets/img/logo.png";
@@ -9,9 +10,9 @@ const Header = () => {
     <header className="container-header mb-5">
       <Container fluid>
         <div className="text-center">
-          <a href="/">
+          <Link to="/">
             <img title="Go to home" alt="Go to home" src={logo} />
-          </a>
+          </Link>
         </div>
       </Container>
     </header>

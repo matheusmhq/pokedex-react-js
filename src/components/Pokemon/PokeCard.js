@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import "./styles.css";
 import { GetImageById } from "../../functions/utils";
@@ -26,7 +26,7 @@ const PokeCard = ({ name, id, types, click }) => {
       <figure
         className={`container-card-img position-relative my-4 container-${types[0].type.name}`}
       >
-        <a href={click ? `/details/${name}` : "javascript:void"}>
+        <Link to={click ? `/details/${name}` : "javascript:void"}>
           {error ? (
             <img alt={name} title={name} src={pokemon_placeholder} />
           ) : (
@@ -38,7 +38,7 @@ const PokeCard = ({ name, id, types, click }) => {
               src={GetImageById(id)}
             />
           )}
-        </a>
+        </Link>
       </figure>
       <div className="w-100  d-flex justify-content-between">
         {types.map((item, index) => {
